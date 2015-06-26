@@ -104,6 +104,7 @@ class SwapType:
     BINARY = "bin"
     NUMBER = "num"
     STRING = "str"
+    BSTRING = "btr"
     INPUT = "inp"
     OUTPUT = "out"
     
