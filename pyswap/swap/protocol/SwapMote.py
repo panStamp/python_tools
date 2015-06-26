@@ -350,13 +350,15 @@ class SwapMote(object):
         data["name"] = self.definition.product
         data["address"] = self.address
         data["txinterval"] = self.txinterval
-        
+
         regs = []
-        try:
-            for reg in self.regular_registers:
-                regs.append(reg.dumps(include_units))
-        except SwapException:
-            raise
+        
+        if self.regular_registers is not None:
+            try:
+                for reg in self.regular_registers:
+                    regs.append(reg.dumps(include_units))
+            except SwapException:
+                raise
             
         data["registers"] = regs
         

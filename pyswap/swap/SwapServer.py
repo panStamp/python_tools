@@ -246,15 +246,17 @@ class SwapServer(threading.Thread):
             if self._eventHandler.newMoteDetected is not None:
                 self._eventHandler.newMoteDetected(mote)
             # Notify the event handler about the discovery of new endpoints
-            for reg in mote.regular_registers:
-                for endp in reg.parameters:
-                    if  self._eventHandler.newEndpointDetected is not None:
-                        self._eventHandler.newEndpointDetected(endp)
+            if mote.regular_registers is not None:
+                for reg in mote.regular_registers:
+                    for endp in reg.parameters:
+                        if  self._eventHandler.newEndpointDetected is not None:
+                            self._eventHandler.newEndpointDetected(endp)
                        
         if self._poll_regular_regs:
             # Query all individual registers owned by this mote
-            for reg in mote.regular_registers:
-                reg.sendSwapQuery()
+            if mote.regular_registers is not None:
+                for reg in mote.regular_registers:
+                    reg.sendSwapQuery()
             
             
     def _updateMoteAddress(self, oldAddr, newAddr):
