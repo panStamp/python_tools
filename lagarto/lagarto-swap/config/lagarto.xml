@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<lagarto>
+	<procname>Lagarto-SWAP</procname>
+	<comms>
+		<address>10.0.0.140</address>
+		<broadcast>tcp://127.0.0.1:5001</broadcast>
+		<publish>event</publish>
+		<httpport>8001</httpport>
+	</comms>
+</lagarto>
