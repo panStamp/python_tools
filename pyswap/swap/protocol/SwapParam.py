@@ -70,7 +70,7 @@ class SwapParam:
         
         # This is a particular case: endpoint is an ASCII string taking all the
         # register space
-        if self.type == SwapType.STRING:
+        if self.type in [SwapType.STRING, SwapType.BSTRING]:
             self.value = self.register.value
         else:
             # Current register value converted to list
@@ -157,7 +157,7 @@ class SwapParam:
                         res = 1
                     else:
                         res = 0
-                else:   # SwapType.STRING
+                else:   # SwapType.STRING, SwapType.BSTRING
                     res = value
             else:
                 res = value
@@ -206,6 +206,8 @@ class SwapParam:
                 strVal = "on"
             elif strVal == "0":
                 strVal = "off"
+        elif self.type == SwapType.BSTRING:
+            strVal = self.value.toAsciiHex()
         else:
             strVal = self.value.toAsciiStr()
         
@@ -382,7 +384,7 @@ class SwapEndpoint(SwapParam):
                             res = 1
                         else:
                             res = 0
-                    else:   # SwapType.STRING
+                    else:   # SwapType.STRING, SwapType.BSTRING
                         res = value
                 else:
                     res = value

@@ -64,6 +64,17 @@ class SwapValue(object):
         lstData = self._data[:]
         return SwapValue(lstData)
 
+        
+    def is_ascii(s):
+        """
+        Return true if the string has ASCII format
+        
+        @param s input string
+        
+        @return Return true if s is an ASCII string
+        """
+        return all(ord(c) < 128 for c in s)
+        
 
     def toAscii(self):
         """
