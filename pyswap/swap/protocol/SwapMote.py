@@ -325,7 +325,7 @@ class SwapMote(object):
         self.state = state
         
         # Device in Rx state?
-        if state == SwapState.RXON:
+        if state in [SwapState.RXON, SwapState.SYNC]:
             nb_cmds = self.nbof_saved_commands()
             # Any queued command?
             if nb_cmds > 0:
