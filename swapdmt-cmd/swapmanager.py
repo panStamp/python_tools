@@ -266,20 +266,23 @@ class SwapManager(SwapInterface):
                     else:
                         # Program node
                         if command[2] == "program":
-                            # Create progress bar    
-                            self.progress = AnimatedProgressBar(end=self.hexfile.nbof_data_lines, width=50)
-                            # Save address of node being programmed
-                            self.prog_address = addr
-                            # Transmit product code
-                            self.transmit_product_code()
-                            
-                            # Put node in upgrade mode
-                            val = SwapValue(SwapState.UPGRADE, 1)
-                            if mote.cmdRegisterWack(SwapRegId.ID_SYSTEM_STATE, val):
-                                print "Node now in programming mode"
-                            elif self.hexfile_line == 0:
-                                print "Unable to put node in progamming mode"
-                                self.prog_address = None
+                            if (self.hexfile == None):
+                                print "Please set a hexfile before running \"program\""
+                            else:
+                                # Create progress bar
+                                self.progress = AnimatedProgressBar(end=self.hexfile.nbof_data_lines, width=50)
+                                # Save address of node being programmed
+                                self.prog_address = addr
+                                # Transmit product code
+                                self.transmit_product_code()
+
+                                # Put node in upgrade mode
+                                val = SwapValue(SwapState.UPGRADE, 1)
+                                if mote.cmdRegisterWack(SwapRegId.ID_SYSTEM_STATE, val):
+                                    print "Node now in programming mode"
+                                elif self.hexfile_line == 0:
+                                    print "Unable to put node in progamming mode"
+                                    self.prog_address = None
                         # Restart node (if not sleeping)
                         elif command[2] == "restart":
                             if mote.restart():
