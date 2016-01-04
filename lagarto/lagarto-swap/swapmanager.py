@@ -43,12 +43,12 @@ from swap.xmltools.XmlSettings import XmlSettings
 from swap.xmltools.XmlSerial import XmlSerial
 from swap.xmltools.XmlNetwork import XmlNetwork
 
-from lagartocomms import LagartoServer
+from lagartocomms import LagartoProcess
 from lagartoresources import LagartoException
 from lagartoconfig import XmlLagarto
 
 
-class SwapManager(SwapInterface, LagartoServer):
+class SwapManager(SwapInterface, LagartoProcess):
     """
     SWAP Management Class
     """
@@ -417,8 +417,8 @@ class SwapManager(SwapInterface, LagartoServer):
         except:
             raise
 
-        # Lagarto server constructor
-        LagartoServer.__init__(self, working_dir)
+        # Lagarto process constructor
+        LagartoProcess.__init__(self, working_dir)
 
         if XmlSettings.debug == 2:
             self._print_swap = True
