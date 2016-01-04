@@ -32,38 +32,27 @@ Initial Requirements:
 
 Manual installation:
 
-1. Install ZeroMQ on your OS. Download the installer from the web page:
+1. Install Paho MQTT client for Python:
 
-    http://zeromq.org/intro:get-the-software
+    easy_install paho-mqtt
     
-2. Install the Python bindings for ZeroMQ:
-
-    easy_install pyzmq
-
-3. Install pyserial (Python module for serial comms):
+2. Install pyserial (Python module for serial comms):
 
     easy_install pyserial
     
-4. Install Cherrypy (Web server)
+3. Install Cherrypy (Web server)
 
     easy_install cherrypy
-    
-5. Install Pyephem (Used to calculate sunrise and sunset times)
-
-    easy_install pyephem
-    
-6. Install pycrypto (AES encryption and others)
+       
+4. Install pycrypto (AES encryption and others)
 
     easy_install pycrypto
-    
-7. Install twitter module
-
-    easy_install twitter
-    
-8. Install pyswap
+      
+5. Install pyswap
 
     cd pyswap
     python setup.py install
 
-9. If you want to run the graphic version of SWAPdmt, then you will have to install
+6. If you want to run the graphic version of SWAPdmt, then you will have to install
    wxPython: http://www.wxpython.org/
+

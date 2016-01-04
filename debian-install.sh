@@ -31,7 +31,6 @@ echo "------------------------------------"
 echo " INSTALL PAHO-MQTT"
 echo "------------------------------------"
 easy_install paho-mqtt
-# pip install paho-mqtt
 
 echo ""
 echo "------------------------------------"
@@ -47,18 +46,7 @@ easy_install cherrypy
 
 echo ""
 echo "------------------------------------"
-echo " INSTALL PYEPHEM"
-echo "------------------------------------"
-easy_install pyephem
-
-echo ""
-echo "------------------------------------"
 echo " INSTALL PYCRYPTO"
 echo "------------------------------------"
 easy_install pycrypto
 
-echo ""
-echo "------------------------------------"
-echo " INSTALL TWITTER MODULE FOR PYTHON"
-echo "------------------------------------"
-easy_install twitter
