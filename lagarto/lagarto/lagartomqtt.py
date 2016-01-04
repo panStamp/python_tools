@@ -1,6 +1,6 @@
 #########################################################################
 #
-# Copyright (c) 2012 Daniel Berenguer <dberenguer@usapiens.com>
+# Copyright (c) 2016 Daniel Berenguer <dberenguer@panstamp.com>
 #
 # This file is part of the lagarto project.
 #
@@ -20,8 +20,8 @@
 # USA
 #
 #########################################################################
-__author__="Daniel Berenguer"
-__date__  ="$Jan 26, 2012$"
+__author__="panStamp S.L.U."
+__date__  ="$Jan 04, 2016$"
 #########################################################################
 
 from lagartoconfig import XmlLagarto
