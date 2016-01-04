@@ -28,15 +28,10 @@ apt-get --yes --force-yes install python-setuptools
 
 echo ""
 echo "------------------------------------"
-echo " INSTALL LIBZMQ-DEV"
+echo " INSTALL PAHO-MQTT"
 echo "------------------------------------"
-apt-get --yes --force-yes install libzmq-dev
-
-echo ""
-echo "------------------------------------"
-echo " INSTALL PYZMQ"
-echo "------------------------------------"
-easy_install pyzmq
+easy_install paho-mqtt
+# pip install paho-mqtt
 
 echo ""
 echo "------------------------------------"
