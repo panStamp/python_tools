@@ -34,7 +34,6 @@ import signal
 import time
 import subprocess
 
-lagarto_max_process = None
 lagarto_swap_process = None
 
 def signal_handler(signal, frame):
@@ -42,10 +41,7 @@ def signal_handler(signal, frame):
     Handle signal received
     """
     print "Terminating lagarto processes"
-    if lagarto_max_process is not None:
-      lagarto_swap_process.terminate()
-    if lagarto_swap_process is not None:
-      lagarto_max_process.terminate()
+    lagarto_swap_process.terminate()
     sys.exit(0)
     
     
@@ -57,24 +53,16 @@ if __name__ == '__main__':
     current_dir = os.path.dirname(sys.argv[0])
     
     if current_dir == "":
-        lagarto_max = "lagarto-max" + os.sep + "lagarto-max.py"
         lagarto_swap = "lagarto-swap" + os.sep + "lagarto-swap.py"
     else:
-        lagarto_max = current_dir + os.sep + "lagarto-max" + os.sep + "lagarto-max.py"
         lagarto_swap = current_dir + os.sep + "lagarto-swap" + os.sep + "lagarto-swap.py"
     
     print "lagarto version " + __version__ + " (" + __date__ + ")"
     
     try:
-        print "Running lagarto-max"
-        lagarto_max_process = subprocess.Popen(["python", lagarto_max])
-        
-        time.sleep(6)
-        
         print "Running lagarto-swap"
         lagarto_swap_process = subprocess.Popen(["python", lagarto_swap])
     except Exception as ex:
         print ex
         
     signal.pause()
-
