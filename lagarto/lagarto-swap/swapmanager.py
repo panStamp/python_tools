@@ -2,7 +2,7 @@
 #
 # SwapManager
 #
-# Copyright (c) 2012 Daniel Berenguer <dberenguer@usapiens.com>
+# Copyright (c) 2016 Daniel Berenguer <dberenguer@usapiens.com>
 #
 # This file is part of the lagarto project.
 #
@@ -153,6 +153,12 @@ class SwapManager(SwapInterface, LagartoProcess):
                         status.append(endp.dumps())
         else:
             for item in endpoints:
+                if "id" not in item:
+                    item["id"] = None
+                if "location" not in item:
+                    item["location"] = None
+                if "name" not in item:
+                    item["name"] = None
                 endp = self.get_endpoint(item["id"], item["location"], item["name"])
                 if endp is not None:
                     status.append(endp.dumps()) 
@@ -171,6 +177,11 @@ class SwapManager(SwapInterface, LagartoProcess):
         """
         status = []
         for item in endpoints:
+            if "id" not in item:
+                item["id"] = None
+            elif "location" not in item or "name" not in item:
+                item["location"] = None
+                item["name"] = None
             endp = self.get_endpoint(item["id"], item["location"], item["name"])
             if endp is not None:
                 if "value" in item:
