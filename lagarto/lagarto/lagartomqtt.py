@@ -57,7 +57,7 @@ class LagartoMqttClient(object):
         """
         print("Message received on topic " + msg.topic + " with QoS " + str(msg.qos) + " and payload " + msg.payload)
 
-        topic = msg.tipic.split("/")
+        topic = msg.topic.split("/")
         if len(topic) >= 3:
           if topic[0] == self.procname:
               if topic[2] == "control":
@@ -73,7 +73,7 @@ class LagartoMqttClient(object):
                       status_data = json.loads(msg.payload)["lagarto"]["status"]
                   
                   if len(status_data) > 0:    
-                      status = data_server.set_status(status_data)
+                      status = self.data_server.set_status(status_data)
                       self.publish_status(status)
 
 
