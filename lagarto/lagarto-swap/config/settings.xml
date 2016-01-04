@@ -3,7 +3,7 @@
   <debug>2</debug>
   <devices>
     <local>devices</local>
-    <remote>http://www.panstamp.org/devices/devices.tar</remote>
+    <remote>https://raw.githubusercontent.com/panStamp/devices/master</remote>
     <update>True</update>
   </devices>
   <serial>serial.xml</serial>
