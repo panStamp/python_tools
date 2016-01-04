@@ -19,9 +19,13 @@ function updateValues()
     var comms = xmlDoc.getElementsByTagName("comms")[0];
     if (comms != null)
     {
-      var broadcast = comms.getElementsByTagName("broadcast")[0];
-      if (broadcast != null)
-        document.getElementById("broadcast").value = broadcast.childNodes[0].nodeValue;
+      var mqttserver = comms.getElementsByTagName("mqttserver")[0];
+      if (mqttserver != null)
+        document.getElementById("mqttserver").value = mqttserver.childNodes[0].nodeValue;
+
+      var mqttport = comms.getElementsByTagName("mqttport")[0];
+      if (mqttport != null)
+        document.getElementById("mqttport").value = mqttport.childNodes[0].nodeValue;
 
       var httpport = comms.getElementsByTagName("httpport")[0];
       if (httpport != null)

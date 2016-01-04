@@ -55,10 +55,14 @@ class XmlLagarto(object):
             address = comms.find("address")
             if address is not None:
                 self.address = address.text
-            # Read broadcast address
-            broadcast = comms.find("broadcast")
-            if broadcast is not None:
-                self.broadcast = broadcast.text
+            # Read MQTT server address
+            mqttserver = comms.find("mqttserver")
+            if mqttserver is not None:
+                self.mqttserver = mqttserver.text
+            # Read MQTT port
+            mqttport = comms.find("mqttport")
+            if mqttport is not None:
+                self.mqttport = mqttport.text
             # Publish condition
             publish = comms.find("publish")
             if publish is not None:
@@ -81,8 +85,10 @@ class XmlLagarto(object):
             f.write("\t<comms>\n")
             if self.address is not None:
                 f.write("\t\t<address>" + self.address + "</address>\n")
-            if self.broadcast is not None:
-                f.write("\t\t<broadcast>" + self.broadcast + "</broadcast>\n")
+            if self.mqttserver is not None:
+                f.write("\t\t<mqttserver>" + self.mqttserver + "</mqttserver>\n")
+            if self.mqttport is not None:
+                f.write("\t\t<mqttport>" + self.mqttport + "</mqttport>\n")
             if self.publish is not None:
                 f.write("\t\t<publish>" + self.publish + "</publish>\n")
             if self.httpport is not None:
@@ -106,8 +112,11 @@ class XmlLagarto(object):
         ## Process name
         self.procname = None
                 
-        ## Broadcast address
-        self.broadcast = None
+        ## MQTT server address
+        self.mqttserver = "localhost"
+        
+        ## MQTT port
+        self.mqttport = 1883
         
         ## Publish condition. Publish on event by default
         self.publish = "event"
