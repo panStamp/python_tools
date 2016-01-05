@@ -4,19 +4,20 @@
   <head>
     <meta name="author" content="panStamp">
     <title>Lagarto</title>
-    <link rel="stylesheet" type="text/css" href="/lagarto/styles.css">
-    <head profile="http://www.w3.org/2005/10/profile">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/lagarto/styles.css">
     <link rel="icon", type="image/png", href="/lagarto/images/favicon.png">
     <script src="/lagarto/js/ajax.js"></script>
     <script src="/lagarto/js/lagarto_settings.js"></script>
   </head>
   <body bgcolor="#FFFFFF">
-    <div id="divcontainer" style="position:relative; visibility:visible; width:550px; top:0px; left:0px;">
-      <script type="text/javascript" src="/lagarto/js/header.js"></script>
+    <div class="w3-container">
       <script type="text/javascript" src="/js/menu.js"></script>
-      <h1>Lagarto settings</h1>
+      <script language="JavaScript" type="text/javascript">
+        setTitle("MQTT/HTTP settings");
+      </script>
       <form action="../config_server" method="post">
-        <table align="center" width="350px" border="0" cellspacing="0" cellpadding="0">
+        <table class="w3-table w3-striped">
           <tr>
 	          <td class="celltitle">Process name</td>
             <td>
@@ -42,11 +43,11 @@
             </td>
           </tr>
         </table>
-        <p>
-          <!--<input type='button' class='button_a' onClick='window.location.href="/core/restart_process"' value='RESTART'/>-->
-          <input type='button' class='button_a' onClick='history.back()' value='CANCEL'>
-          <input type='submit' class='button_a' value='SAVE'>
-        </p>
+        <footer class="w3-container" align="center">
+          <p></p>     
+          <input type='button' class="w3-btn w3-round-large w3-theme" onClick='history.back()' value='CANCEL'>
+          <input type='submit' class="w3-btn w3-round-large w3-theme" value='SAVE'>
+        </footer>
       </form>
     </div>
     <script language="JavaScript" type="text/javascript">
