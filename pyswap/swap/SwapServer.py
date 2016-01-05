@@ -632,31 +632,32 @@ class SwapServer(threading.Thread):
         Update Device Definition Files from remote server
         """
         print "Downloading Device Definition Files"
-        try:
-            local_dir = XmlSettings.device_localdir
-            try:
-                os.stat(local_dir)
-            except:
-                os.mkdir(local_dir)              
-                    
-            local_file = XmlSettings.device_localdir + os.sep + "devices.xml"
-            remote_file = XmlSettings.device_remote + os.sep + "devices.xml"
-            remote = urllib2.urlopen(remote_file)
-            local = open(local_file, 'wb')
-            local.write(remote.read())
-            local.close()
 
-            device_info = XmlDeviceDir()
-        
-            # Create developer folders
-            for developer in device_info.developers:
-                developer_dir = local_dir + os.sep + developer.name
-                print "Developer", developer.name, ":"
-                try:
-                    os.stat(developer_dir)
-                except:
-                    os.mkdir(developer_dir)
-                    
+        local_dir = XmlSettings.device_localdir
+        try:
+            os.stat(local_dir)
+        except:
+            os.mkdir(local_dir)              
+                
+        local_file = XmlSettings.device_localdir + os.sep + "devices.xml"
+        remote_file = XmlSettings.device_remote + os.sep + "devices.xml"
+        remote = urllib2.urlopen(remote_file)
+        local = open(local_file, 'wb')
+        local.write(remote.read())
+        local.close()
+
+        device_info = XmlDeviceDir()
+    
+        # Create developer folders
+        for developer in device_info.developers:
+            developer_dir = local_dir + os.sep + developer.name
+            print "Developer", developer.name, ":"
+            try:
+                os.stat(developer_dir)
+            except:
+                os.mkdir(developer_dir)
+                
+            try:
                 # Download device definition files for each developer folder
                 for device in developer.devices:
                     device_name = device.option
@@ -668,8 +669,8 @@ class SwapServer(threading.Thread):
                     local.write(remote.read())
                     local.close()
 
-        except:
-            print "Unable to update Device Definition Files"
+            except Exception as e:
+                print "Unable to update Device Definition File " + device_name + ".xml"
                     
         """
         local_tar = XmlSettings.device_localdir + ".tar"
