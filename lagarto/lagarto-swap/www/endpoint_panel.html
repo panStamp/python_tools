@@ -4,25 +4,26 @@
   <head>
     <meta name="author" content="panStamp">
     <title>Lagarto-SWAP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/lagarto/styles.css">
-    <head profile="http://www.w3.org/2005/10/profile">
     <link rel="icon", type="image/png", href="/lagarto/images/favicon.png">
     <script src="/lagarto/js/ajax.js"></script>
     <script src="/js/endpoint_panel.js"></script>
   </head>
   <body bgcolor="#FFFFFF">
-    <div id="divcontainer" style="position:relative; visibility:visible; width:550px; top:0px; left:0px;">
-      <script type="text/javascript" src="/lagarto/js/header.js"></script>
+    <div class="w3-container">
       <script type="text/javascript" src="/js/menu.js"></script>
-      <h1>Endpoint panel</h1>
+      <script language="JavaScript" type="text/javascript">
+        setTitle("SWAP network");
+      </script>
       <a href="device_panel.html">View devices</a>
       <br></br>
-      <table id="nettable" align="center" width="550px" border="0" cellspacing="0" cellpadding="0">
+      <table id="nettable" class="w3-table w3-striped">
         <tr>
-          <th class="cellhead" width="10%">ID</th>
-          <th class="cellhead" width="25%">Location</th>
-          <th class="cellhead" width="25%">Name</th>
-          <th class="cellhead" width="15%">Value</th>
+          <th>ID</th>
+          <th>Location</th>
+          <th>Name</th>
+          <th>Value</th>
           <th class="cellhead" width="20%">Command</th>
         </tr>
       </table>

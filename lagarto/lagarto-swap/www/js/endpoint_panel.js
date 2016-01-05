@@ -5,6 +5,7 @@
  */
 function createValues()
 {
+alert("adding");
   var jsonDoc = getJsonDoc();
   var swapnet = jsonDoc.lagarto;
   swapnet.status.forEach(addEndpoint);
@@ -17,7 +18,6 @@ function addEndpoint(endpoint)
 {
   var nettable = document.getElementById("nettable");
   var row, cell, label, command, val;
-
   row = nettable.insertRow(nettable.rows.length);
 
   // Link to config page
@@ -26,26 +26,22 @@ function addEndpoint(endpoint)
   cfglink.setAttribute("href", "config_endpoint.html?id=" + endpoint.id);
   cell.appendChild(cfglink);
   // Endpoint ID
-  cell.className = "cellitem";
   label = document.createTextNode(endpoint.id);
   label.value = document.createTextNode(endpoint.id);
   cfglink.appendChild(label);
   // Location
   cell = row.insertCell(1);
-  cell.className = "cellitem";
   label = document.createTextNode(endpoint.location);
   cell.appendChild(label);
   // Name
   cell = row.insertCell(2);
-  cell.className = "cellitem";
   label = document.createTextNode(endpoint.name);
   cell.appendChild(label);
   // Value
   cell = row.insertCell(3);
-  cell.className = "cellitem";
   val = document.createElement("input");
   val.type = "text";
-  val.className = "inputnoedit1";
+  //val.className = "inputnoedit1";
   val.readOnly = "readOnly";
   val.id = endpoint.id;
   val.value = endpoint.value
@@ -61,7 +57,6 @@ function addEndpoint(endpoint)
 
   // Command
   cell = row.insertCell(4);
-  cell.className = "cellitem";
 
   if (endpoint.direction == "out")
   {
@@ -70,7 +65,6 @@ function addEndpoint(endpoint)
       // ON button
   		command = document.createElement("input");
       command.type = "button";
-      command.className = "button_b";
       command.value = "on";
       var reqOn = "values/?id=" + endpoint.id + "&value=ON"
       command.onclick = function() {loadJSONdata(reqOn, updateValues);}
@@ -78,7 +72,6 @@ function addEndpoint(endpoint)
       // OFF button
   		command = document.createElement("input");
       command.type = "button";
-      command.className = "button_b";
       command.value = "off";
       var reqOff = "values/?id=" + endpoint.id + "&value=OFF"
       command.onclick = function() {loadJSONdata(reqOff, updateValues);}
@@ -89,7 +82,6 @@ function addEndpoint(endpoint)
       // "Set" text input
       val = document.createElement("input");
       val.type = "text";
-      val.className = "inputdatamini";
       val.id = "cv" + endpoint.id;
       cell.appendChild(val);
 
@@ -97,7 +89,6 @@ function addEndpoint(endpoint)
       command = document.createElement("input");
       command.type = "submit";
       command.value = "set"
-      command.className = "button_b";
       command.onclick = function() {loadJSONdata("values/?id=" + endpoint.id + "&value=" + document.getElementById("cv" + endpoint.id).value, updateValues);}
       cell.appendChild(command);
     }
