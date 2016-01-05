@@ -139,7 +139,7 @@ class SwapManager(SwapInterface, LagartoProcess):
     def get_status(self, endpoints):
         """
         Return network status as a list of endpoints in JSON format
-        Method required by LagartoServer
+        Method required by LagartoProcess
         
         @param endpoints: list of endpoints being queried
         
@@ -169,7 +169,7 @@ class SwapManager(SwapInterface, LagartoProcess):
     def set_status(self, endpoints):
         """
         Set endpoint status
-        Method required by LagartoServer
+        Method required by LagartoProcess
         
         @param endpoints: list of endpoints in JSON format
         
@@ -332,7 +332,7 @@ class SwapManager(SwapInterface, LagartoProcess):
     def http_command_received(self, command, params):
         """
         Process command sent from HTTP server. Method to be overrided by data server.
-        Method required by LagartoServer
+        Method required by LagartoProcess
         
         @param command: command string
         @param params: dictionary of parameters
@@ -402,7 +402,7 @@ class SwapManager(SwapInterface, LagartoProcess):
         # Stop SWAP server
         self.server.stop()
         # Stop Lagarto server
-        LagartoServer.stop(self)
+        LagartoProcess.stop(self)
 
     
     def __init__(self, swap_settings=None):
