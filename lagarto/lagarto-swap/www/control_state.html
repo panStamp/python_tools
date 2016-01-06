@@ -1,0 +1,31 @@
+<!-- Copyright (c) Daniel Berenguer (panStamp) 2012 */ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta name="author" content="panStamp">
+    <title>Lagarto-SWAP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/lagarto/styles.css">
+    <link rel="icon", type="image/png", href="/lagarto/images/favicon.png">
+    <script src="/lagarto/js/ajax.js"></script>
+    <script src="/js/control_endpoint.js"></script>
+  </head>
+  <body bgcolor="#FFFFFF">
+    <div class="w3-container">
+      <script type="text/javascript" src="/js/menu.js"></script>
+      <script language="JavaScript" type="text/javascript">
+        setTitle("Control endpoint");
+      </script>
+      <form id="dataform" action="values" method="post">
+        <input type="hidden" id="endpid" name="endpid"/>
+        <input type="hidden" id="value" name="value"/>
+        <input type='button' class="w3-btn w3-round-large w3-theme" onClick="control('ON')" value='ON'/>
+        <input type='button' class="w3-btn w3-round-large w3-theme" onClick="control('OFF')" value='OFF'/>
+      </form>
+    </div>
+    <script language="JavaScript" type="text/javascript">
+      updateValues();
+    </script>
+  </body>
+</html>
+
