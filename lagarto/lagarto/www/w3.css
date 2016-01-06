@@ -102,6 +102,7 @@ img.w3-image,.w3-image img{max-width:100%;height:auto}
 .w3-pagination li a:hover,.w3-pagination li a:focus{background-color:#ccc}
 .w3-input-group,.w3-group{margin-top:24px;margin-bottom:24px}
 .w3-input{padding:8px;display:block;border:none;border-bottom:1px solid #808080;width:100%}
+.w3-input-noedit{padding:8px;display:block;border:none;width:100%;background:transparent}
 .w3-label{color:#009688}
 .w3-input:not(:valid)~.w3-validate{color:#f44336}
 .w3-select{padding:4px 0;width:100%;color:#000;border:1px solid transparent;border-bottom:1px solid #009688}
