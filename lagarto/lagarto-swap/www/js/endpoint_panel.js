@@ -5,7 +5,6 @@
  */
 function createValues()
 {
-alert("adding");
   var jsonDoc = getJsonDoc();
   var swapnet = jsonDoc.lagarto;
   swapnet.status.forEach(addEndpoint);
@@ -20,15 +19,10 @@ function addEndpoint(endpoint)
   var row, cell, label, command, val;
   row = nettable.insertRow(nettable.rows.length);
 
-  // Link to config page
-  cell = row.insertCell(0);
-  cfglink = document.createElement("a");
-  cfglink.setAttribute("href", "config_endpoint.html?id=" + endpoint.id);
-  cell.appendChild(cfglink);
   // Endpoint ID
+  cell = row.insertCell(0);
   label = document.createTextNode(endpoint.id);
-  label.value = document.createTextNode(endpoint.id);
-  cfglink.appendChild(label);
+  cell.appendChild(label);
   // Location
   cell = row.insertCell(1);
   label = document.createTextNode(endpoint.location);
@@ -41,7 +35,7 @@ function addEndpoint(endpoint)
   cell = row.insertCell(3);
   val = document.createElement("input");
   val.type = "text";
-  //val.className = "inputnoedit1";
+  val.className = "w3-input-noedit";
   val.readOnly = "readOnly";
   val.id = endpoint.id;
   val.value = endpoint.value
@@ -58,40 +52,25 @@ function addEndpoint(endpoint)
   // Command
   cell = row.insertCell(4);
 
+  // Edit button
+	link = document.createElement("a");
+  link.setAttribute("href", "/config_endpoint.html?id=" + endpoint.id);
+  cell.appendChild(link);
+  img = document.createElement("img");
+  img.setAttribute("src","/lagarto/images/edit.png");
+  img.title = "control";
+  link.appendChild(img);
+
   if (endpoint.direction == "out")
   {
-    if (endpoint.type == "bin")
-    {
-      // ON button
-  		command = document.createElement("input");
-      command.type = "button";
-      command.value = "on";
-      var reqOn = "values/?id=" + endpoint.id + "&value=ON"
-      command.onclick = function() {loadJSONdata(reqOn, updateValues);}
-      cell.appendChild(command);
-      // OFF button
-  		command = document.createElement("input");
-      command.type = "button";
-      command.value = "off";
-      var reqOff = "values/?id=" + endpoint.id + "&value=OFF"
-      command.onclick = function() {loadJSONdata(reqOff, updateValues);}
-      cell.appendChild(command);
-    }
-    else
-    {
-      // "Set" text input
-      val = document.createElement("input");
-      val.type = "text";
-      val.id = "cv" + endpoint.id;
-      cell.appendChild(val);
-
-      // "Set" button
-      command = document.createElement("input");
-      command.type = "submit";
-      command.value = "set"
-      command.onclick = function() {loadJSONdata("values/?id=" + endpoint.id + "&value=" + document.getElementById("cv" + endpoint.id).value, updateValues);}
-      cell.appendChild(command);
-    }
+    // Control button
+		link = document.createElement("a");
+    link.setAttribute("href", "/control_endpoint.html?id=" + endpoint.id);
+    cell.appendChild(link);
+    img = document.createElement("img");
+    img.setAttribute("src","/lagarto/images/control.png");
+    img.title = "control";
+    link.appendChild(img);
   }
 }
 

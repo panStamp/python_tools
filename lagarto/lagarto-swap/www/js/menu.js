@@ -4,7 +4,8 @@ document.write("  <a href='/general_settings.html'>General settings</a>");
 document.write("  <a href='/lagarto/lagarto_settings.html'>MQTT/HTTP settings</a>");
 document.write("  <a href='/modem_serial.html'>Serial gateway</a>");
 document.write("  <a href='/modem_network.html'>SWAP settings</a>");
-document.write("  <a href='/endpoint_panel.html'>SWAP network</a>");
+document.write("  <a href='/device_panel.html'>Device panel</a>");
+document.write("  <a href='/endpoint_panel.html'>Endpoint panel</a>");
 document.write("  <a href='/lagarto/account_panel.html'>Security</a>");
 document.write("</nav>");
 

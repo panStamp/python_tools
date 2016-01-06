@@ -22,23 +22,19 @@ function addMote(mote)
 
   // Address
   cell = row.insertCell(0);
-  cell.className = "cellitem";
   label = document.createTextNode(mote.address);
   cell.appendChild(label);
   // Developer
   cell = row.insertCell(1);
-  cell.className = "cellitem";
   label = document.createTextNode(mote.manufacturer);
   cell.appendChild(label);
   // Description
   cell = row.insertCell(2);
-  cell.className = "cellitem";
   label = document.createTextNode(mote.name);
   cell.appendChild(label);
   // Action
   // Edit device
   cell = row.insertCell(3);
-  cell.className = "cellaction";
   cfglink = document.createElement("a");
   cfglink.setAttribute("href", "/config_device.html?address=" + mote.address);
   cell.appendChild(cfglink);
@@ -48,7 +44,6 @@ function addMote(mote)
   cfglink.appendChild(img);
   // Delete device
   cell = row.insertCell(4);
-  cell.className = "cellaction";
   cfglink = document.createElement("a");
   cfglink.setAttribute("href", "/command/delete_mote?address=" + mote.address);
   cfglink.onclick = function() {return confirm("Delete mote?");};
