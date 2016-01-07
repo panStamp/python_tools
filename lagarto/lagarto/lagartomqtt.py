@@ -142,17 +142,21 @@ class LagartoMqttClient(object):
         self.mqtt_client.on_connect = self.on_connect
         self.mqtt_client.on_message = self.on_message
         
-        # Connecto to MQTT broker
-        self.mqtt_client.connect(config.mqttserver, int(config.mqttport), 60)
-        
-        # Run MQTT thread
-        self.mqtt_client.loop_start()
-
-        self.publish_lock = threading.Lock()
-        
-        # Heart beat transmission thread
-        hbeat_process = PeriodicHeartBeat(self.publish_status)
-        hbeat_process.start()
+        try:
+            # Connecto to MQTT broker
+            self.mqtt_client.connect(config.mqttserver, int(config.mqttport), 60)
+            
+            # Run MQTT thread
+            self.mqtt_client.loop_start()
+    
+            self.publish_lock = threading.Lock()
+            
+            # Heart beat transmission thread
+            hbeat_process = PeriodicHeartBeat(self.publish_status)
+            hbeat_process.start()
+            
+        except Exception:
+            print "Unable to connect to MQTT broker on address " + self.mqttserver + "(port " + self.mqttport + ")"
 
 
 class PeriodicHeartBeat(threading.Thread):
