@@ -3,8 +3,8 @@
  */
 function updateValues()
 {
-  var endpid = getUrlVars()["id"];
-  document.getElementById("endpid").value = endpid;
+  var epid = getUrlVars()["id"];
+  document.getElementById("endpid").value = epid;
 }
 
 /**
@@ -12,7 +12,21 @@ function updateValues()
  */
 function control(val)
 {
-  document.getElementById("value").value = val
-  document.getElementById("dataform").submit()
+  if (val != "")
+    document.getElementById("value").value = val;
+  else
+    val = document.getElementById("value").value;
+
+  var epid = document.getElementById("endpid").value
+  var request = "values/?id=" + epid + "&value=" + val;
+  loadJSONdata(request, received);
+}
+
+/**
+ * Response received from server
+ */
+function received()
+{
+  window.location.href = "endpoint_panel.html";
 }
 

@@ -65,7 +65,10 @@ function addEndpoint(endpoint)
   {
     // Control button
 		link = document.createElement("a");
-    link.setAttribute("href", "/control_endpoint.html?id=" + endpoint.id);
+    if (endpoint.type == "bin")
+      link.setAttribute("href", "/control_state.html?id=" + endpoint.id);
+    else
+      link.setAttribute("href", "/control_value.html?id=" + endpoint.id);
     cell.appendChild(link);
     img = document.createElement("img");
     img.setAttribute("src","/lagarto/images/control.png");

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/lagarto/styles.css">
     <link rel="icon", type="image/png", href="/lagarto/images/favicon.png">
+    <script src="/lagarto/js/tools.js"></script>
     <script src="/lagarto/js/ajax.js"></script>
     <script src="/js/control_endpoint.js"></script>
   </head>
@@ -16,11 +17,19 @@
       <script language="JavaScript" type="text/javascript">
         setTitle("Control endpoint");
       </script>
-      <form id="dataform" action="values" method="post">
-        <input type="hidden" id="endpid" name="endpid"/>
-        <input type="password" id="value" name="value" class="w3-input w3-border"/>
-        <input type='submit' class='w3-btn w3-round-large w3-theme' value='SEND'/>
-      </form>
+      <br></br>
+      <div class="w3-card-12"">
+        <form id="dataform" class="w3-container" action="values" method="post">          
+          <p>
+            <input type="hidden" id="endpid" name="id"/>
+            <label>Enter value</label>
+            <input type="text" id="value" name="value" class="w3-input w3-border"/>
+            <footer class="w3-container" align="center">
+              <input type='button' class='w3-btn w3-round-large w3-theme' onClick="control('');" value='SEND'/>
+            </footer>
+          </p>
+        </form>
+      </div>
     </div>
     <script language="JavaScript" type="text/javascript">
       updateValues();
