@@ -29,6 +29,16 @@
       loadJSONdata("values", createValues);
       window.setInterval("loadJSONdata('values', updateValues);", 3000);
     </script>
+    <div id="noep" class="w3-modal">
+      <div class="w3-modal-content w3-card-8">
+        <div class="w3-container">
+          <span onclick="document.getElementById('noep').style.display='none'" 
+          class="w3-closebtn">&times;</span>
+          <p>No device or endpoint found in the network</p>
+          <p>Restart your SWAP nodes in order for lagarto to detect them</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 

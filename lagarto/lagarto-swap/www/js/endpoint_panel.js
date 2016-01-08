@@ -7,7 +7,11 @@ function createValues()
 {
   var jsonDoc = getJsonDoc();
   var swapnet = jsonDoc.lagarto;
-  swapnet.status.forEach(addEndpoint);
+
+  if (swapnet.status.length == 0)
+    document.getElementById("noep").style.display='block';
+  else
+    swapnet.status.forEach(addEndpoint);
 }
 
 /**

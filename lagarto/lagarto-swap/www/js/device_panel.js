@@ -7,7 +7,11 @@ function updateValues()
 {
   var jsonDoc = getJsonDoc();
   var swapnet = jsonDoc.network;
-  swapnet.motes.forEach(addMote);
+
+  if (swapnet.motes.length == 0)
+    document.getElementById("nodev").style.display='block';
+  else
+    swapnet.motes.forEach(addMote);
 }
 
 /**

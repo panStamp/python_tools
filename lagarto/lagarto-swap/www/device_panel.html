@@ -28,6 +28,16 @@
     <script language="JavaScript" type="text/javascript">
       loadJSONdata("../config/swapnet.json", updateValues);
     </script>
+    <div id="nodev" class="w3-modal">
+      <div class="w3-modal-content w3-card-8">
+        <div class="w3-container">
+          <span onclick="document.getElementById('nodev').style.display='none'" 
+          class="w3-closebtn">&times;</span>
+          <p>No device found in the network</p>
+          <p>Restart your SWAP nodes in order for lagarto to detect them</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 
