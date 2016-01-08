@@ -42,8 +42,9 @@ function addMote(mote)
   img.setAttribute("src","/lagarto/images/edit.png");
   img.title = "edit";
   cfglink.appendChild(img);
+  // Insert blank space
+  cell.appendChild( document.createTextNode('\u00A0\u00A0'));
   // Delete device
-  cell = row.insertCell(4);
   cfglink = document.createElement("a");
   cfglink.setAttribute("href", "/command/delete_mote?address=" + mote.address);
   cfglink.onclick = function() {return confirm("Delete mote?");};

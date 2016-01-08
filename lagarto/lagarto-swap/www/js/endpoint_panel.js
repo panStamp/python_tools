@@ -21,27 +21,6 @@ function addEndpoint(endpoint)
 
   // Endpoint ID
   cell = row.insertCell(0);
-
-  cell.className = "w3-dropdown-hover";
-  div1 = document.createElement("div");
-  div1.className = "w3-dropdown-content w3-border";
-  cell.appendChild(div1);
-  link = document.createElement("a");
-  link.setAttribute("href", "/config_endpoint.html?id=" + endpoint.id);
-  //link.className = "w3-dropdown-content w3-card";
-  link.title = "EDIT";
-  link.data = "EDIT";
-  div1.appendChild(link);
-  link = document.createElement("a");
-  if (endpoint.type == "bin")
-    link.setAttribute("href", "/control_state.html?id=" + endpoint.id);
-  else
-    link.setAttribute("href", "/control_value.html?id=" + endpoint.id);
-  //link.className = "w3-dropdown-content w3-card";
-  link.title = "CONTROL";
-  div1.appendChild(link);
-
-
   label = document.createTextNode(endpoint.id);
   cell.appendChild(label);
 
@@ -76,7 +55,7 @@ function addEndpoint(endpoint)
   cell.appendChild(link);
   img = document.createElement("img");
   img.setAttribute("src","/lagarto/images/edit.png");
-  img.title = "control";
+  img.title = "edit";
   link.appendChild(img);
 
   // Insert blank space
