@@ -55,8 +55,6 @@ class LagartoMqttClient(object):
         """
         Callback function: message published from server
         """
-        print("Message received on topic " + msg.topic + " with QoS " + str(msg.qos) + " and payload " + msg.payload)
-
         topic = msg.topic.split("/")
         if len(topic) >= 3:
           if topic[0] == self.procname:
