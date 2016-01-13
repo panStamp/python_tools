@@ -463,7 +463,9 @@ class SwapManager(SwapInterface):
             pass
 
         # Disable verbose
-        self.server.verbose = False
+        if self.server is not None:
+            self.server.verbose = False
+            
         self.verbose = False
                        
         # Firmware image
