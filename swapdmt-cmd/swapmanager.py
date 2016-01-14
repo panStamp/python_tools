@@ -463,8 +463,7 @@ class SwapManager(SwapInterface):
             pass
 
         # Disable verbose
-        if self.server is not None:
-            self.server.verbose = False
+        self.server.verbose = False
             
         self.verbose = False
                        
