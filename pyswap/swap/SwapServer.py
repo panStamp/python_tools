@@ -639,12 +639,15 @@ class SwapServer(threading.Thread):
         except:
             os.mkdir(local_dir)              
                 
-        local_file = XmlSettings.device_localdir + os.sep + "devices.xml"
-        remote_file = XmlSettings.device_remote + os.sep + "devices.xml"
-        remote = urllib2.urlopen(remote_file)
-        local = open(local_file, 'wb')
-        local.write(remote.read())
-        local.close()
+        try:
+          local_file = XmlSettings.device_localdir + os.sep + "devices.xml"
+          remote_file = XmlSettings.device_remote + "/devices.xml"
+          remote = urllib2.urlopen(remote_file)
+          local = open(local_file, 'wb')
+          local.write(remote.read())
+          local.close()
+        except Exception:
+          print "Unable to download devices.xml from remote server"
 
         device_info = XmlDeviceDir()
     
@@ -663,7 +666,7 @@ class SwapServer(threading.Thread):
                     device_name = device.option
                     print "Downloading", device.option + ".xml"
                     local_file = developer_dir + os.sep + device_name + ".xml"
-                    remote_file = XmlSettings.device_remote + os.sep + developer.name + os.sep + device_name + ".xml"
+                    remote_file = XmlSettings.device_remote + "/" + developer.name + "/" + device_name + ".xml"
                     remote = urllib2.urlopen(remote_file)
                     local = open(local_file, 'wb')
                     local.write(remote.read())
