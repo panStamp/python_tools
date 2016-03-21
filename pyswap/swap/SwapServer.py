@@ -145,7 +145,7 @@ class SwapServer(threading.Thread):
 
     def resetNetwork(self):
         """
-        Clear SWAP network adata nd read swapnet file again
+        Clear SWAP network data and read swapnet file again
         """
         # Clear network data
         self.network.read()
