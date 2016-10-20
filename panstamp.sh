@@ -9,8 +9,7 @@
 # Description:
 ### END INIT INFO
 
-LAGARTO_SWAP=/home/debian/python_tools/lagarto/lagarto-swap/lagarto-swap.py
-#LAGARTO_SWAP=/home/pi/python/lagarto/lagarto-swap/lagarto-swap.py
+LAGARTO_SWAP=/home/pi/python_tools/lagarto/lagarto-swap/lagarto-swap.py
 
 case "$1" in
   start)
