@@ -358,8 +358,6 @@ class SwapServer(threading.Thread):
                                 return
                             if reg.getLength() != packet.value.getLength():
                                 return
-                            if reg.value.isEqual(packet.value):
-                                return
 
                         # Save new register value
                         reg.setValue(packet.value)
