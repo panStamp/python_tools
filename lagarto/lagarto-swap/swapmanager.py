@@ -343,6 +343,8 @@ class SwapManager(SwapInterface, LagartoProcess):
         try:
             # Configure endpoint
             if command == "config_endpoint":
+                if "unit" not in params:
+                    params["unit"] = None
                 self.config_endpoint(params["id"],
                                      params["name"],
                                      params["location"],
