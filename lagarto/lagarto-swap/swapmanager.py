@@ -148,9 +148,10 @@ class SwapManager(SwapInterface, LagartoProcess):
         status = []
         if endpoints is None:
             for mote in self.network.motes:
-                for reg in mote.regular_registers:
-                    for endp in reg.parameters:
-                        status.append(endp.dumps())
+                if mote.regular_registers:
+                    for reg in mote.regular_registers:
+                        for endp in reg.parameters:
+                            status.append(endp.dumps())
         else:
             for item in endpoints:
                 if "id" not in item:
